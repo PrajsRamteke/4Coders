@@ -90,8 +90,8 @@ btn.addEventListener("click", async (event) => {
 copybtn.addEventListener("click", () => {
   try {
     navigator.clipboard.writeText(debuggedCode.value);
-    // document.execCommand("copy");
-    // alert("use 'Ctrl + C' to Copy the Code, Some Browser Not Supported");
+    document.execCommand("copy");
+    alert("use 'Ctrl + C' to Copy the Code, Some Browser Not Supported");
     debuggedCode.execCommand("selectAll");
   } catch (err) {
     console.error("Error copying text: ", err);
