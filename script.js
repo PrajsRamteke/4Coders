@@ -4,6 +4,7 @@ import config from "./config.js";
 const btn = document.querySelector("#btn");
 const modeSelect = document.getElementById("mode");
 const copybtn = document.getElementById("copybtn");
+const apiKeyInput = document.getElementById("api-key-input");
 
 const codeInput = CodeMirror.fromTextArea(
   document.getElementById("codeInput"),
@@ -28,13 +29,28 @@ const debuggedCode = CodeMirror.fromTextArea(
 codeInput.setSize("100%", "450px");
 debuggedCode.setSize("100%", "450px");
 
+// ----------Get apiKey from local storage
+// html line number 22 remove class hidden
+// const savedApiKey = localStorage.getItem("apiKey");
+// if (savedApiKey) {
+//   apiKeyInput.value = savedApiKey;
+// }
+
+// ------------Select mode---------
 var mode = modeSelect.value;
 modeSelect.addEventListener("change", (event) => {
   mode = event.target.value;
   btn.innerHTML = mode.split(" ")[0];
 });
+
 btn.addEventListener("click", async (event) => {
   event.preventDefault();
+
+  // -------input api key get------------
+  // const apiKey = apiKeyInput.value;
+  // localStorage.setItem("apiKey", apiKey);
+  // -------------------------------
+
   const apiKey = config.API_KEY;
   const textareaValue = codeInput.getValue();
   const prompt = `You need to ${mode} in the following code, and then rewrite the corrected code. Please refer to the code below and provide the corrected version in the provided text area.\n\nCode to ${mode}:\n${textareaValue}\n\n`;
