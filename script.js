@@ -51,7 +51,7 @@ btn.addEventListener("click", async (event) => {
   // localStorage.setItem("apiKey", apiKey);
   // -------------------------------
 
-  const apiKey = config.API_KEY;
+  const apiKey = config.API_KEY; //comment if input field on
   const textareaValue = codeInput.getValue();
   const prompt = `You need to ${mode} in the following code, and then rewrite the corrected code. Please refer to the code below and provide the corrected version in the provided text area.\n\nCode to ${mode}:\n${textareaValue}\n\n`;
 
