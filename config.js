@@ -1,7 +1,7 @@
 /** @format */
 
 const config = {
-  API_KEY: "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", //enter you "api key"
+  API_KEY: "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", //enter you "api key"
 };
 
 export default config;
