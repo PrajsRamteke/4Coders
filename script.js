@@ -29,12 +29,12 @@ const debuggedCode = CodeMirror.fromTextArea(
 codeInput.setSize("100%", "450px");
 debuggedCode.setSize("100%", "450px");
 
-// ----------Get apiKey from local storage
-// html line number 22 remove class hidden
-// const savedApiKey = localStorage.getItem("apiKey");
-// if (savedApiKey) {
-//   apiKeyInput.value = savedApiKey;
-// }
+// ----------Get apiKey from local storage-----
+// ----html line number 22 remove class hidden----
+const savedApiKey = localStorage.getItem("apiKey");
+if (savedApiKey) {
+  apiKeyInput.value = savedApiKey;
+}
 
 // ------------Select mode---------
 var mode = modeSelect.value;
@@ -47,11 +47,11 @@ btn.addEventListener("click", async (event) => {
   event.preventDefault();
 
   // -------input api key get------------
-  // const apiKey = apiKeyInput.value;
-  // localStorage.setItem("apiKey", apiKey);
+  const apiKey = apiKeyInput.value;
+  localStorage.setItem("apiKey", apiKey);
   // -------------------------------
 
-  const apiKey = config.API_KEY; //comment if input field on
+  // const apiKey = config.API_KEY; //comment if input field on
   const textareaValue = codeInput.getValue();
   const prompt = `You need to ${mode} in the following code, and then rewrite the corrected code. Please refer to the code below and provide the corrected version in the provided text area.\n\nCode to ${mode}:\n${textareaValue}\n\n`;
 
