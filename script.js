@@ -53,7 +53,9 @@ btn.addEventListener("click", async (event) => {
 
   // const apiKey = config.API_KEY; //comment if input field on
   const textareaValue = codeInput.getValue();
-  const prompt = `You need to ${mode} in the following code, and then rewrite the corrected code. Please refer to the code below and provide the corrected version in the provided text area.\n\nCode to ${mode}:\n${textareaValue}\n\n`;
+  // const prompt = `You need to ${mode} in the following code, and then rewrite the corrected code. Please refer to the code below and provide the corrected version in the provided text area.\n\n${textareaValue}\n\n`;
+
+  const prompt = `You need to ${mode} in the following code, Please refer to the code below and provide the corrected version in the provided text area."\n\n${textareaValue}\n\n"`;
 
   try {
     const response = await axios.post(
