@@ -4,6 +4,12 @@
 
 4 Coders is a website that offers a range of services related to coding, such as debugging, code optimization, and code enhancement. The website is designed to help developers improve their code and become better at their craft.
 
+# Images
+
+Use 4Coders to Debbuge, Enhance, Optimize, Explain and Writing a code.
+
+![AI Code Translator](./images/demo.png)
+
 ## Installation
 
 ```sh
