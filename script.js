@@ -90,7 +90,7 @@ btn.addEventListener("click", async (event) => {
       localStorage.removeItem("apiKey"); //when api key expired
       btn.disabled = false;
       window.location.reload();
-      alert("API key is invalid");
+      alert("Invalid API Key Entered. Please Generate a New OpenAi API Key.");
     } else {
       alert("API Limit over, API invalid");
       console.error("API Invalid Error:", error);
