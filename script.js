@@ -35,7 +35,7 @@ debuggedCode.setSize("100%", "450px");
 const savedApiKey = localStorage.getItem("apiKey");
 if (savedApiKey) {
   apiKeyInput.value = savedApiKey;
-  apiInputBox.classList.add("hidden"); //if api key found in local storage then remove input field
+  apiInputBox.classList.add("hidden"); //if api key found in local storage then add input field
   apiInputBox.classList.remove("pt-4"); //if api key found in local storage then remove input field
 }
 
@@ -80,6 +80,7 @@ btn.addEventListener("click", async (event) => {
     debuggedCode.setValue(debugged);
   } catch (error) {
     if (error.response && error.response.status === 401) {
+      localStorage.removeItem("apiKey"); //when api key expired
       alert("API key is invalid");
     } else {
       alert("API Limit over, API invalid");
