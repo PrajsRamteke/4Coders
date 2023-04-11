@@ -89,10 +89,20 @@ btn.addEventListener("click", async (event) => {
 
 copybtn.addEventListener("click", () => {
   try {
-    navigator.clipboard.writeText(debuggedCode.value);
+    // Create a temporary textarea element
+    const tempTextarea = document.createElement("textarea");
+    // Set the value of the temporary element to the debugged code
+    tempTextarea.value = debuggedCode.getValue();
+    // Add the temporary element to the DOM
+    document.body.appendChild(tempTextarea);
+    // Select the contents of the temporary element
+    tempTextarea.select();
+    // Copy the contents of the temporary element
     document.execCommand("copy");
-    alert("use 'Ctrl + C' to Copy the Code, Some Browser Not Supported");
-    debuggedCode.execCommand("selectAll");
+    // Alert the user that the code has been copied
+    alert("Code copied to clipboard");
+    // Remove the temporary element from the DOM
+    document.body.removeChild(tempTextarea);
   } catch (err) {
     console.error("Error copying text: ", err);
   }
