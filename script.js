@@ -5,6 +5,7 @@ const btn = document.querySelector("#btn");
 const modeSelect = document.getElementById("mode");
 const copybtn = document.getElementById("copybtn");
 const apiKeyInput = document.getElementById("api-key-input");
+const apiInputBox = document.getElementById("apiInputBox");
 
 const codeInput = CodeMirror.fromTextArea(
   document.getElementById("codeInput"),
@@ -34,6 +35,8 @@ debuggedCode.setSize("100%", "450px");
 const savedApiKey = localStorage.getItem("apiKey");
 if (savedApiKey) {
   apiKeyInput.value = savedApiKey;
+  apiInputBox.classList.add("hidden"); //if api key found in local storage then remove input field
+  apiInputBox.classList.remove("pt-4"); //if api key found in local storage then remove input field
 }
 
 // ------------Select mode---------
@@ -45,11 +48,8 @@ modeSelect.addEventListener("change", (event) => {
 
 btn.addEventListener("click", async (event) => {
   event.preventDefault();
-
   // -------input api key get------------
   const apiKey = apiKeyInput.value;
-  localStorage.setItem("apiKey", apiKey);
-  // -------------------------------
 
   // const apiKey = config.API_KEY; //comment if input field on
   const textareaValue = codeInput.getValue();
@@ -75,6 +75,7 @@ btn.addEventListener("click", async (event) => {
         },
       }
     );
+    localStorage.setItem("apiKey", apiKey);
     var debugged = response.data.choices[0].text.trim();
     debuggedCode.setValue(debugged);
   } catch (error) {
