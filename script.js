@@ -58,6 +58,8 @@ btn.addEventListener("click", async (event) => {
   const prompt = `You need to ${mode} in the following code, Please refer to the code below and provide the corrected version in the provided text area."\n\n${textareaValue}\n\n"`;
 
   try {
+    btn.disabled = true;
+    btn.innerHTML = "Loading...";
     const response = await axios.post(
       "https://api.openai.com/v1/completions",
       {
@@ -77,9 +79,12 @@ btn.addEventListener("click", async (event) => {
         },
       }
     );
+
     localStorage.setItem("apiKey", apiKey);
     var debugged = response.data.choices[0].text.trim();
     debuggedCode.setValue(debugged);
+    btn.innerHTML = "Done";
+    btn.disabled = false;
   } catch (error) {
     if (error.response && error.response.status === 401) {
       localStorage.removeItem("apiKey"); //when api key expired
