@@ -88,6 +88,8 @@ btn.addEventListener("click", async (event) => {
   } catch (error) {
     if (error.response && error.response.status === 401) {
       localStorage.removeItem("apiKey"); //when api key expired
+      btn.disabled = false;
+      window.location.reload();
       alert("API key is invalid");
     } else {
       alert("API Limit over, API invalid");
