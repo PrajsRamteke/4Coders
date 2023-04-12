@@ -7,6 +7,27 @@ const copybtn = document.getElementById("copybtn");
 const apiKeyInput = document.getElementById("api-key-input");
 const apiInputBox = document.getElementById("apiInputBox");
 
+// -----------temperature----------
+// ------its a secrete btn only developer knows-----
+const increaseTempBtn = document.querySelector("#increase-temp-btn");
+let temperature = 0;
+const tempbtn = document
+  .querySelector("#temp-btn")
+  .addEventListener("click", () => {
+    increaseTempBtn.classList.remove("hidden");
+  });
+
+increaseTempBtn.addEventListener("click", () => {
+  if (temperature < 0.8) {
+    temperature += 0.2;
+  } else {
+    temperature = 0.2;
+  }
+  console.log("Temperature:", temperature);
+  increaseTempBtn.innerHTML = `Temperature ${temperature}`;
+});
+// -----------temperature----------
+
 const codeInput = CodeMirror.fromTextArea(
   document.getElementById("codeInput"),
   {
@@ -64,7 +85,7 @@ btn.addEventListener("click", async (event) => {
       {
         prompt: prompt,
         model: "text-davinci-003",
-        temperature: 0,
+        temperature: temperature,
         max_tokens: 3000,
         top_p: 1,
         frequency_penalty: 0.0,
