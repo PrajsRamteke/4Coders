@@ -102,6 +102,7 @@ btn.addEventListener("click", async (event) => {
     var debugged = response.data.choices[0].text.trim();
     debuggedCode.setValue(debugged);
     btn.innerHTML = "Done";
+    apiInputBox.classList.add("hidden"); //if api valid then hide input box
     btn.disabled = false;
   } catch (error) {
     if (error.response && error.response.status === 401) {
