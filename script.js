@@ -14,7 +14,7 @@ let temperature = 0;
 const tempbtn = document
   .querySelector("#temp-btn")
   .addEventListener("click", () => {
-    increaseTempBtn.classList.remove("hidden");
+    increaseTempBtn.classList.toggle("hidden"); //instead of if else used toggle
   });
 
 increaseTempBtn.addEventListener("click", () => {
@@ -24,7 +24,7 @@ increaseTempBtn.addEventListener("click", () => {
     temperature = 0.2;
   }
   console.log("Temperature:", temperature);
-  increaseTempBtn.innerHTML = `Temperature ${temperature}`;
+  increaseTempBtn.innerHTML = `Temperature ${temperature.toFixed(1)}`; //used toFixed(1) only answer in 1 digit (0.600001 not like this)
 });
 // -----------temperature----------
 
