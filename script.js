@@ -1,6 +1,5 @@
 /** @format */
 
-import config from "./config.js";
 const btn = document.querySelector("#btn");
 const modeSelect = document.getElementById("mode");
 const copybtn = document.getElementById("copybtn");
@@ -72,7 +71,6 @@ btn.addEventListener("click", async (event) => {
   // -------input api key get------------
   const apiKey = apiKeyInput.value;
 
-  // const apiKey = config.API_KEY; //comment if input field on
   const textareaValue = codeInput.getValue();
 
   const prompt = `You need to ${mode} in the following code, dont write previous code only write new update code "\n\n${textareaValue}\n\n"`;
