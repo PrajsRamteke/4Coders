@@ -37,8 +37,8 @@ const codeInput = CodeMirror.fromTextArea(
     lineWrapping: true,
   }
 );
-const debuggedCode = CodeMirror.fromTextArea(
-  document.getElementById("debuggedCode"),
+const codeOutput = CodeMirror.fromTextArea(
+  document.getElementById("codeOutput"),
   {
     mode: "javascript",
     theme: "yonce",
@@ -48,7 +48,7 @@ const debuggedCode = CodeMirror.fromTextArea(
   }
 );
 codeInput.setSize("100%", "450px");
-debuggedCode.setSize("100%", "450px");
+codeOutput.setSize("100%", "450px");
 
 // ----------Get apiKey from local storage-----
 // ----html line number 22 remove class hidden----
@@ -77,7 +77,7 @@ btn.addEventListener("click", async (event) => {
 
   try {
     btn.disabled = true;
-    btn.innerHTML = "Loading...";
+    btn.innerHTML = "Processing . . .";
     const response = await axios.post(
       "https://api.openai.com/v1/completions",
       {
@@ -100,7 +100,7 @@ btn.addEventListener("click", async (event) => {
 
     localStorage.setItem("apiKey", apiKey);
     var debugged = response.data.choices[0].text.trim();
-    debuggedCode.setValue(debugged);
+    codeOutput.setValue(debugged);
     btn.innerHTML = "Done";
     apiInputBox.classList.add("hidden"); //if api valid then hide input box
     btn.disabled = false;
@@ -122,7 +122,7 @@ copybtn.addEventListener("click", () => {
     // Create a temporary textarea element
     const tempTextarea = document.createElement("textarea");
     // Set the value of the temporary element to the debugged code
-    tempTextarea.value = debuggedCode.getValue();
+    tempTextarea.value = codeOutput.getValue();
     // Add the temporary element to the DOM
     document.body.appendChild(tempTextarea);
     // Select the contents of the temporary element
