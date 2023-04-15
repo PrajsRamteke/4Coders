@@ -129,8 +129,6 @@ copybtn.addEventListener("click", () => {
     tempTextarea.select();
     // Copy the contents of the temporary element
     document.execCommand("copy");
-    // Alert the user that the code has been copied
-    alert("Code copied to clipboard");
     // Remove the temporary element from the DOM
     document.body.removeChild(tempTextarea);
   } catch (err) {
