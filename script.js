@@ -9,11 +9,16 @@ const apiInputBox = document.getElementById("apiInputBox");
 // -----------temperature----------
 // ------its a secrete btn only developer knows-----
 const increaseTempBtn = document.querySelector("#increase-temp-btn");
+const tempBox = document.querySelector("#tempBox");
+const tempText = document.querySelector("#tempText");
 let temperature = 0;
 const tempbtn = document
   .querySelector("#temp-btn")
   .addEventListener("click", () => {
-    increaseTempBtn.classList.toggle("hidden"); //instead of if else used toggle
+    tempBox.classList.toggle("hidden"); //instead of if else used toggle
+    setTimeout(() => {
+      tempText.classList.add("hidden");
+    }, 10000);
   });
 
 increaseTempBtn.addEventListener("click", () => {
@@ -131,6 +136,12 @@ copybtn.addEventListener("click", () => {
     document.execCommand("copy");
     // Remove the temporary element from the DOM
     document.body.removeChild(tempTextarea);
+
+    // Show the "Copied!" message
+    copybtn.innerText = "Copied!";
+    setTimeout(() => {
+      copybtn.innerText = "Copy Output";
+    }, 2000);
   } catch (err) {
     console.error("Error copying text: ", err);
   }

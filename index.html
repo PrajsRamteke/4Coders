@@ -62,9 +62,18 @@
           class="mt-2 w-full text-center text-lg font-medium bg-white-800 p-2 rounded-lg text-black">
       </div>
 
-      <button
-        class="text-lg mt-4 px-4 p-2 bg-purple-600 text-white rounded-lg  hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50 w-full w-auto font-bold text-lg uppercase hidden"
-        id="increase-temp-btn">Temperature</button>
+      <div class="hidden" id="tempBox">
+        <span id="tempText" class="text-sm pt-2">Increasing the value to
+          0.8 will
+          result in a more
+          randomized
+          output,
+          whereas
+          decreasing it to 0.2 will yield a more focused and deterministic output.</span>
+        <button
+          class="text-lg mt-4 px-4 p-2 bg-purple-600 text-white rounded-lg  hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50 w-full w-auto font-bold text-lg uppercase "
+          id="increase-temp-btn">Temperature</button>
+      </div>
 
       <button
         class="text-lg mt-4 px-4 p-2 bg-blue-600 text-white rounded-lg  hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50 w-full w-auto font-bold text-lg uppercase"
@@ -91,7 +100,8 @@
     <!-- ----------codemirror----- -->
     <div class="flex flex-col lg:flex-row justify-between">
       <div class="my-6 lg:mr-4 mb-4 lg:mb-0 flex-1 lg:w-1/2">
-        <h4 for="codeInput" class="text-center block text-lg mb-2 font-medium bg-gray-800 p-2 rounded-lg">INPUT</h4>
+        <h4 for="codeInput" class="text-center block text-lg mb-2 font-medium bg-gray-800 p-2 rounded-lg" id="temp-btn">
+          INPUT</h4>
         <textarea id="codeInput" class="codeInputText" style="background-color: #030712;"></textarea>
       </div>
 
@@ -112,7 +122,7 @@
       <p class="md:shrink-3">+91 7219 109 297</p>
     </div>
     <div class="border-t border-gray-700 mt-2 pt-2 text-center">
-      <p id="temp-btn">&copy; 2023 Created by Prajwal. All rights reserved.</p>
+      <p>&copy; 2023 Created by Prajwal. All rights reserved.</p>
     </div>
   </footer>
   <!-- -----footer-------- -->
