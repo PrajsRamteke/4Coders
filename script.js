@@ -22,11 +22,7 @@ const tempbtn = document
   });
 
 increaseTempBtn.addEventListener("click", () => {
-  if (temperature < 0.8) {
-    temperature += 0.2;
-  } else {
-    temperature = 0.2;
-  }
+  temperature = temperature < 0.8 ? temperature + 0.2 : 0.2;
   console.log("Temperature:", temperature);
   increaseTempBtn.innerHTML = `Temperature ${temperature.toFixed(1)}`; //used toFixed(1) only answer in 1 digit (0.600001 not like this)
 });
