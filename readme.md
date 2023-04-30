@@ -16,7 +16,7 @@ Use 4Coders to Debbuge, Enhance, Optimize, Explain and Writing a code.
 git clone https://github.com/PrajsRamteke/4Coders.git
 ```
 
-Live (click): [4Coders](https://GPTcode.netlify.app/).
+Live (click): [CodeGPT](https://GPTcode.netlify.app/).
 
 ## Features
 
