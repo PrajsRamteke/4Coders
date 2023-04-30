@@ -112,6 +112,7 @@ btn.addEventListener("click", async (event) => {
       window.location.reload();
       alert("Invalid API Key Entered. Please Generate a New OpenAi API Key.");
     } else {
+      window.location.reload();
       alert("API Limit over, API invalid");
       console.error("API Invalid Error:", error);
     }
