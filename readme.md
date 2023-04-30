@@ -1,8 +1,8 @@
 <!-- @format -->
 
-# 4 Coders
+# CodeGPT
 
-4 Coders is a website that offers a range of services related to coding, such as debugging, code optimization, and code enhancement. The website is designed to help developers improve their code and become better at their craft.
+CodeGPT is a website that offers a range of services related to coding, such as debugging, code optimization, and code enhancement. The website is designed to help developers improve their code and become better at their craft.
 
 # Images
 
@@ -35,7 +35,7 @@ Live (click): [4Coders](https://forcoders.netlify.app/).
 
 ## How to Use
 
-- Go to the 4 Coders website.
+- Go to the CodeGPT website.
 - Enter your API key or click the "Click To Get Free API" button to get one.
 - Enter your code in the "INPUT" section.
 - Choose the service you want to use (debugging, optimization, enhancement, or explanation).
@@ -45,4 +45,4 @@ Live (click): [4Coders](https://forcoders.netlify.app/).
 
 ## Credits
 
-- 4 Coders was created by Prajwal Ramteke.
+- CodeGPT was created by Prajwal Ramteke.
