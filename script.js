@@ -7,7 +7,7 @@ const apiKeyInput = document.getElementById("api-key-input");
 const apiInputBox = document.getElementById("apiInputBox");
 
 // -----------temperature----------
-// ------its a secrete btn only developer knows-----
+// ------its a secrete buttin only developer knows-----
 const increaseTempBtn = document.querySelector("#increase-temp-btn");
 const tempBox = document.querySelector("#tempBox");
 const tempText = document.querySelector("#tempText");
@@ -80,16 +80,14 @@ btn.addEventListener("click", async (event) => {
     btn.disabled = true;
     btn.innerHTML = "Processing . . .";
     const response = await axios.post(
-      "https://api.openai.com/v1/completions",
+      "https://api.openai.com/v1/chat/completions",
       {
-        prompt: prompt,
-        model: "text-davinci-003",
-        temperature: temperature,
-        max_tokens: 3000,
-        top_p: 1,
+        model: "gpt-3.5-turbo",
+        messages: [{ role: "system", content: `${prompt}` }],
+        n: 1,
+        temperature: 0.5,
         frequency_penalty: 0.0,
         presence_penalty: 0.0,
-        // stop: "\n\n",
       },
       {
         headers: {
@@ -100,7 +98,9 @@ btn.addEventListener("click", async (event) => {
     );
 
     localStorage.setItem("apiKey", apiKey);
-    var debugged = response.data.choices[0].text.trim();
+    // var debugged = response.data.choices[0].text.trim();
+    var debugged = response.data.choices[0].message.content;
+
     codeOutput.setValue(debugged);
     btn.innerHTML = "Done";
     apiInputBox.classList.add("hidden"); //if api valid then hide input box
@@ -121,20 +121,12 @@ btn.addEventListener("click", async (event) => {
 
 copybtn.addEventListener("click", () => {
   try {
-    // Create a temporary textarea element
     const tempTextarea = document.createElement("textarea");
-    // Set the value of the temporary element to the debugged code
     tempTextarea.value = codeOutput.getValue();
-    // Add the temporary element to the DOM
     document.body.appendChild(tempTextarea);
-    // Select the contents of the temporary element
     tempTextarea.select();
-    // Copy the contents of the temporary element
     document.execCommand("copy");
-    // Remove the temporary element from the DOM
     document.body.removeChild(tempTextarea);
-
-    // Show the "Copied!" message
     copybtn.innerText = "Copied!";
     setTimeout(() => {
       copybtn.innerText = "Copy Output";
