@@ -2,7 +2,7 @@
 
 # CodeGPT
 
-CodeGPT is a website that offers a range of services related to coding, such as debugging, code optimization, and code enhancement. The website is designed to help developers improve their code and become better at their craft.
+CodeGPT is a website that offers a range of services related to coding, such as debugging, code optimization, code enhancement, error reporting, markdown file creation, secure code implementation, code refactoring, and code testing. The website is designed to help developers improve their code, become better at their craft, and ensure that their code is secure and functioning correctly.
 
 # Images
 
@@ -20,10 +20,15 @@ Live (click): [CodeGPT](https://GPTcode.netlify.app/).
 
 ## Features
 
-- Debugging: users can enter their code and debug it using the - - website's debugging tool.
-- Optimization: users can optimize their code by removing unnecessary lines and improving its performance.
-- Enhancement: users can enhance their code by adding comments and making it more readable.
-- Explanation: users can request an explanation of code snippets to better understand how they work.
+- **Debugging:** Users can enter their code and debug it using the website's debugging tool.
+- **Optimization:** Users can optimize their code by removing unnecessary lines and improving its performance.
+- **Enhancement:** Users can enhance their code by adding comments and making it more readable.
+- **Explanation:** Users can request an explanation of code snippets to better understand how they work.
+- **Error Reporting:** Users can report errors in code or suggest solutions to fix them.
+- **Markdown File:** Users can create documentation for code in a markdown file.
+- **Secure Code:** Users can improve the security of existing code.
+- **Refactor Code:** Users can reorganize and simplify existing code while maintaining functionality.
+- **Test Code:** Users can create tests to verify that code is working correctly.
 
 ## Technologies Used
 
