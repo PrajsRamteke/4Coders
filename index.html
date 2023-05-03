@@ -81,13 +81,26 @@
       <div class="mt-4 flex justify-between w-full">
         <!-- <label for="city-select">Select a city:</label> -->
         <select id="mode" class="w-1/2 text-center block text-lg font-medium bg-gray-800 p-2 rounded-lg">
-          <option value="write a code">Write a Code</option>
-          <option value="Explain the code line by line">Explain Code</option>
-          <option value="Debug and fixed an error">Debug Code</option>
-          <option value="Refactor">Refactor Code</option>
-          <option value="Optimize and Add new features">Optimize Code</option>
-          <option value="Enhance and Add Comments">Enhance Code</option>
+          <option value="write a code" title="Write a piece of code from scratch">Write a Code</option>
+          <option value="Explain the code line by line" title="Provide a detailed explanation of how the code works">
+            Explain Code</option>
+          <option value="Debug and fixed an error" title="Identify and fix errors in existing code">Debug Code</option>
+          <option value="Error Reporting or Report the Error"
+            title="Report errors in code or suggest solutions to fix them">Error Reporting</option>
+          <option value="Markdown :Create Documentation in markdown file"
+            title="Create documentation for code in a markdown file">MarkDown File</option>
+          <option value="Secure and Implement Security Measures" title="Improve the security of existing code">Secure
+            Code</option>
+          <option value="Optimize and Add new features"
+            title="Improve the performance and add new features to existing code">Optimize Code</option>
+          <option value="Enhance and Add Comments"
+            title="Improve the readability of code by adding comments and documentation">Enhance Code</option>
+          <option value="Refactor" title="Reorganize and simplify existing code while maintaining functionality">
+            Refactor Code</option>
+          <option value="Test Code" title="Create tests to verify that code is working correctly">Test Code
+          </option>
         </select>
+
 
         <button id="copybtn"
           class="ml-4 w-1/2 text-center block text-lg  font-medium bg-green-600 hover:bg-green-700 p-2 rounded-lg">Copy
