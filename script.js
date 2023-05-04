@@ -5,6 +5,7 @@ const modeSelect = document.getElementById("mode");
 const copybtn = document.getElementById("copybtn");
 const apiKeyInput = document.getElementById("api-key-input");
 const apiInputBox = document.getElementById("apiInputBox");
+const speak = document.getElementById("speak");
 
 // -----------temperature----------
 // ------its a secrete buttin only developer knows-----
@@ -102,6 +103,7 @@ btn.addEventListener("click", async (event) => {
     var debugged = response.data.choices[0].message.content;
 
     codeOutput.setValue(debugged);
+    speak.classList.remove("hidden");
     btn.innerHTML = "Done";
     apiInputBox.classList.add("hidden"); //if api valid then hide input box
     btn.disabled = false;
@@ -119,6 +121,7 @@ btn.addEventListener("click", async (event) => {
   }
 });
 
+// ---------Copy Output------------
 copybtn.addEventListener("click", () => {
   try {
     const tempTextarea = document.createElement("textarea");
@@ -133,5 +136,22 @@ copybtn.addEventListener("click", () => {
     }, 2000);
   } catch (err) {
     console.error("Error copying text: ", err);
+  }
+});
+
+// -------------Speak And Stop-----------
+let isSpeaking = false;
+speak.addEventListener("click", () => {
+  if (!isSpeaking) {
+    let loud = new SpeechSynthesisUtterance(codeOutput.getValue());
+    speechSynthesis.speak(loud);
+    speak.innerText = "Stop";
+    speak.style.backgroundColor = "red";
+    isSpeaking = true;
+  } else {
+    speechSynthesis.cancel();
+    speak.innerText = "Read";
+    isSpeaking = false;
+    speak.style.backgroundColor = "green";
   }
 });

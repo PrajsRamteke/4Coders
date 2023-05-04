@@ -21,6 +21,8 @@
   <!-- tailwind css -->
   <script src="https://cdn.tailwindcss.com"></script>
   <title>CodeGPT</title>
+  <!-- --------font awesome---- -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- codemirror  -->
   <script src="codemirror/lib/codemirror.js"></script>
   <link rel="stylesheet" href="codemirror/lib/codemirror.css">
@@ -119,7 +121,11 @@
       </div>
 
       <div class="flex-1 my-6 lg:w-1/2">
-        <h4 for="codeOutput" class="text-center block text-lg mb-2 font-medium bg-gray-800 p-2 rounded-lg">OUTPUT</h4>
+        <h4 for="codeOutput" class="text-center block text-lg mb-2 font-medium bg-gray-800 p-2 rounded-lg relative">
+          <button id="speak"
+            class="bg-green-700 px-2 rounded-full hover:bg-green-500 absolute left-10 top-1/2 transform -translate-y-1/2 hidden">Read</button>
+          OUTPUT
+        </h4>
         <textarea id="codeOutput" class="codeOutputText" style="background-color: #030712;"></textarea>
       </div>
     </div>
