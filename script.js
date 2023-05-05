@@ -141,9 +141,16 @@ copybtn.addEventListener("click", () => {
 
 // -------------Speak And Stop-----------
 let isSpeaking = false;
+
 speak.addEventListener("click", () => {
   if (!isSpeaking) {
     let loud = new SpeechSynthesisUtterance(codeOutput.getValue());
+    //tracted the voice
+    loud.onend = () => {
+      isSpeaking = false;
+      speak.innerText = "Read";
+      speak.style.backgroundColor = "green";
+    };
     speechSynthesis.speak(loud);
     speak.innerText = "Stop";
     speak.style.backgroundColor = "red";
