@@ -72,7 +72,6 @@ btn.addEventListener("click", async (event) => {
   event.preventDefault();
   // -------input api key get------------
   const apiKey = apiKeyInput.value;
-
   const textareaValue = codeInput.getValue();
 
   const prompt = `You need to ${mode} in the following code, dont write previous code only write new update code "\n\n${textareaValue}\n\n"`;
@@ -99,13 +98,14 @@ btn.addEventListener("click", async (event) => {
     );
 
     localStorage.setItem("apiKey", apiKey);
-    // var debugged = response.data.choices[0].text.trim();
     var debugged = response.data.choices[0].message.content;
-
     codeOutput.setValue(debugged);
+
     speak.classList.remove("hidden");
-    btn.innerHTML = "Done";
+    document.querySelector("#CreateFile").classList.remove("hidden");
+
     apiInputBox.classList.add("hidden"); //if api valid then hide input box
+    btn.innerHTML = "Done";
     btn.disabled = false;
   } catch (error) {
     if (error.response && error.response.status === 401) {
@@ -162,3 +162,15 @@ speak.addEventListener("click", () => {
     speak.style.backgroundColor = "green";
   }
 });
+
+// ----------------Create File------------
+let CreateFile = document
+  .getElementById("CreateFile")
+  .addEventListener("click", () => {
+    var textToSave = codeOutput.getValue();
+    var blob = new Blob([textToSave], { type: "text/plain;charset=utf-8" });
+    var link = document.createElement("a");
+    link.setAttribute("href", window.URL.createObjectURL(blob));
+    link.setAttribute("download", "code.txt");
+    link.click();
+  });
