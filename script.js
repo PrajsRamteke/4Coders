@@ -132,7 +132,7 @@ copybtn.addEventListener("click", () => {
     document.body.removeChild(tempTextarea);
     copybtn.innerText = "Copied!";
     setTimeout(() => {
-      copybtn.innerText = "copied!";
+      copybtn.innerText = "Copy";
     }, 2000);
   } catch (err) {
     console.error("Error copying text: ", err);
