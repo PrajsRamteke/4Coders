@@ -102,7 +102,7 @@ btn.addEventListener("click", async (event) => {
     codeOutput.setValue(debugged);
 
     speak.classList.remove("hidden");
-    document.querySelector("#CreateFile").classList.remove("hidden");
+    document.querySelector("#copybtn").classList.remove("hidden");
 
     apiInputBox.classList.add("hidden"); //if api valid then hide input box
     btn.innerHTML = "Done";
@@ -132,7 +132,7 @@ copybtn.addEventListener("click", () => {
     document.body.removeChild(tempTextarea);
     copybtn.innerText = "Copied!";
     setTimeout(() => {
-      copybtn.innerText = "Copy Output";
+      copybtn.innerText = "copied!";
     }, 2000);
   } catch (err) {
     console.error("Error copying text: ", err);
