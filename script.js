@@ -74,7 +74,7 @@ btn.addEventListener("click", async (event) => {
   const apiKey = apiKeyInput.value;
   const textareaValue = codeInput.getValue();
 
-  const prompt = `You need to ${mode} in the following code, dont write previous code only write new update code "\n\n${textareaValue}\n\n"`;
+  const prompt = `You need to '${mode}' in the following code, dont write previous code only write new update code "\n\n${textareaValue}\n\n"`;
 
   try {
     btn.disabled = true;
